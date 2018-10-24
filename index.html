@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Simple Calculator</title>
+	<link class="logo" rel="icon" type="image/png" href="LogoMakr_3JL1Wm.png">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div class="cal">
+		<form name="Calculator">
+			<input id="display" type="text" name="display"><br> <br>
+			<input type="button" onclick="Calculator.display.value+='1'" value="1" name="1">
+			<input type="button" onclick="Calculator.display.value+='2'" value="2" name="2">
+			<input type="button" onclick="Calculator.display.value+='3'" value="3" name="3">
+			<input type="button" value="<--" onclick="onPressBackspace()" name="">
+			<br><br>
+			<input type="button" onclick="Calculator.display.value+='4'" value="4" name="4">
+			<input type="button" onclick="Calculator.display.value+='5'" value="5" name="5">
+			<input type="button" onclick="Calculator.display.value+='6'" value="6" name="6">
+			<input type="button" onclick="Calculator.display.value+=' + '" value="+" name="+">
+			<br><br>
+			<input type="button" onclick="Calculator.display.value+='7'" value="7" name="7">
+			<input type="button" onclick="Calculator.display.value+='8'" value="8" name="8">
+			<input type="button" onclick="Calculator.display.value+='9'" value="9" name="9">
+			<input type="button" onclick="Calculator.display.value+=' - '" value="-" name="-">
+			<br><br>
+			<input type="button" onclick="Calculator.display.value+='.'" value="." name=".">
+			<input type="button" onclick="Calculator.display.value+='0'" value="  0  " name="0">
+			<input type="button" onclick="Calculator.display.value+=' % '" value="%" name="%">
+			<input type="button" onclick="Calculator.display.value+=' * '" value="*" name="*">
+			<br> <br>
+			<input type="button" onclick="Calculator.display.value+='3.14'" value="π" name="π">
+			<input type="button" onclick="exponent()" value="x²" name="x²">
+			<input type="button" id="SQRT" onclick="doMath()" value="&#x221A;" name="&#x221A;">
+			<input type="button" onclick="Calculator.display.value+=' / '" value="&#247;" name="/"><br><br>
+			<button id="done" type="button" onclick="Calculator.display.value = Math.round(eval(Calculator.display.value) * 100000) / 100000; " value="=" name="=">=</button>
+			<input type="button" onclick="Calculator.display.value =''" value="CLEAR" name="clear"> 
+		<br><br><br>	
+		</form>
+	</div>	
+	<script>
+		var ans = document.getElementById('ans')
+			if (ans.keyCode === 13) {
+        		document.getElementById("done").click();
+    		}
+	</script>
+	<script>
+		function onPressBackspace() {
+    		Calculator.display.value = Calculator.display.value.substring(0, Calculator.display.value.length - 1);
+		}
+		function superscript() {
+			document.execCommand("superscript");
+		}
+		function doMath(){
+		  var inputNum1=document.Calculator.display.value;
+		  var result = Math.sqrt(inputNum1);
+		  document.Calculator.display.value = result;
+		}
+		function exponent(){
+		  var exp1=document.Calculator.display.value;
+		  var expresult = Math.pow(exp1, 2);
+		  document.Calculator.display.value = expresult;
+		}
+	</script>
+</body>
+</html>
